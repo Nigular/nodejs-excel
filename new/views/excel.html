@@ -1,0 +1,7 @@
+
+<% include header.html %>
+    <p>Welcome to <%= title %></p>
+	<% data.forEach(function(list){ %>
+		<h6><%= list %></h6>
+	<% }) %>
+<% include footer.html %>

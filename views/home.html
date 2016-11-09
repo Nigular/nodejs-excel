@@ -1,0 +1,44 @@
+<% include header.html %>
+<h1>Welcome <%= user.username %>, 欢迎登录！！</h1>
+<a class="btn" href="/loginout">退出</a>
+<div class="container">
+    <form class="col-sm-offset-4 col-sm-4 form-horizontal" role="form" method="post">
+        <fieldset>
+            <legend>资料录入</legend>
+            <%- message %>
+             <div class="form-group">
+                <label class="col-sm-3 control-label" for="email">邮箱</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="邮箱" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="account">账号</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="account" name="account" placeholder="账号" required>
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="aapplyge">是否申请</label>
+                <div class="col-sm-9">
+                     <input type="text" class="form-control" id="apply" name="apply" placeholder="是否申请" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="remarks">备注</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="remarks" name="remarks" placeholder="备注" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-primary">录入</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+
+<% include footer.html %>

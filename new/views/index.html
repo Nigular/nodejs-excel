@@ -1,0 +1,11 @@
+
+<% include header.html %>
+<p><a href="/login">登录</a></p>
+<h2> 这个是html文件 </h2>
+    <h1><%= title %></h1>
+	<h1><%- title %></h1>
+    <p>Welcome to <%= title %></p>
+	<% users.forEach(function(user){ %>
+		<h6><%= user.username %></h6>
+	<% }) %>
+<% include footer.html %>
