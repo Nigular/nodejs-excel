@@ -41,7 +41,7 @@ router.route('/').get(function(req, res, next) {
 										throw err;
 									}else{
 										//console.log(docs.length);
-										res.render("users",{ title: '列表页',totalPage:listSize/pageSize,nowPage:(nowPage+1),data:docs});  // 渲染login模板
+										res.render("list",{ title: '列表页',totalPage:listSize/pageSize,nowPage:(nowPage+1),data:docs});  // 渲染login模板
 										//mongedb.db.close();
 									}
 								})
@@ -54,7 +54,7 @@ router.route('/').get(function(req, res, next) {
 	var limit = req.body.searchkey;	
 	if(limit.length==0){
 		whereStr={};
-		res.redirect("/users");	// 重新跳回去users的get页面
+		res.redirect("/list");	// 重新跳回去list的get页面
 	}else{
 		whereStr = {"email":limit};
 	}

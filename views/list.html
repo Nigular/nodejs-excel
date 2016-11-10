@@ -3,15 +3,15 @@
     <head>
         <% include ../modules/m_header.html %>
         <!-- CSS -->
-         <link rel="stylesheet" href="stylesheets/list.css">
+        <link rel="stylesheet" href="stylesheets/list.css">
     </head>
 <body>
 <div class="wrap">
-	<div class="well">查找结果</div>
+	<div class="well">所有列表</div>
 	<div class="container">
-		<form class="search-box" method="post">
+		<form class="search-box" method="post" action="/list">
 		   <div class="group">
-		      <label>关键字:</label>
+		      <label>关键字</label>
 		      <div class="searchkey">
 		         <input type="text" class="form-control" name="searchkey"
 		            placeholder="请输入邮箱,不输入则搜索全部">
@@ -41,8 +41,14 @@
 			<% } %>
 			</tbody>
 		</table>
+		<div class="pager">
+			<p class="count">总页数: <font><%= Math.ceil(totalPage) %> </font> 当前页数: <font><%= nowPage %></font></p>
+			<ul>
+			  <li class="previous <% if(nowPage==1){ %>disabled<% } %>"><a href="list?topage=<%= nowPage-1 %>">&larr; 上一页</a></li>
+			  <li class="next <% if(nowPage==Math.ceil(totalPage)){ %>disabled<% } %>"><a href="list?topage=<%= nowPage+1 %>">下一页 &rarr;</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
-
 
 <% include footer.html %>

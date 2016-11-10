@@ -10,7 +10,7 @@ var session = require("express-session");
 
 // 路由分配
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var list = require('./routes/list');
 var upload = require("./routes/upload");
 var download = require("./routes/download");
 var excel = require("./routes/excel");
@@ -56,7 +56,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 路由控制：
 app.use('/', routes);    //index可以直接访问
-app.use('/users', users);	// 用户列表页	对应routes里的users.js
+app.use('/list', list);	// 用户列表页	对应routes里的users.js
 app.use('/login', routes);	// 登陆路由
 app.use('/loginout', routes);		// 退出登陆后，返回到index页面
 app.use('/home', routes);	//home需要登录才能访问

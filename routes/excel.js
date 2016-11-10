@@ -43,7 +43,7 @@ function insertData(obj,res){
 					if(err) throw err;
 					else
 					console.log("插入完毕,用时");
-					res.redirect("/users");		// 完成后跳转到users路由
+					res.redirect("/list");		// 完成后跳转到list路由
 				});		
 			});
 		});

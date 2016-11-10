@@ -1,4 +1,11 @@
-<% include header.html %>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <% include ../modules/m_header.html %>
+        <!-- CSS -->
+        <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    </head>
+<body>
 <h1>Welcome <%= user.username %>, 欢迎登录！！</h1>
 <a class="btn" href="/loginout">退出</a>
 <div class="container">
