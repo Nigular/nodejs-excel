@@ -3,13 +3,44 @@
     <head>
         <% include ../modules/m_header.html %>
         <!-- CSS -->
-        <link rel="stylesheet" href="stylesheets/list.css">
+        <link rel="stylesheet" href="/stylesheets/list.css">
+        <link href="/stylesheets/lyz.calendar.css" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+        	.download-f{float: right;}
+        	#data-box{position: relative;}
+        	#data-box .tip{display: inline-block;width: 80px;}
+        	#divDate{left: 80px;top: 30px;}
+        	#txtEndDateCalendar{left: 366px;30px;}
+        </style>
     </head>
 <body>
 <div class="wrap">
 	<div class="well">文件下载</div>
-	<form method='post' name="download" enctype='multipart/form-data'>
+	
+	
+</div>
+<div style="margin:80px auto; width:650px;" id="data-box">
+ 	<span class="tip">开始时间:</span><input id="txtBeginDate" style="width:170px;padding:7px 10px;border:1px solid #ccc;margin-right:10px;"/>
+   	<span class="tip">结束时间:</span><input id="txtEndDate" style="width:170px;padding:7px 10px;border:1px solid #ccc;" />
+   	<form method='post' name="download" enctype='multipart/form-data' class="download-f">
 		<button type="submit" class="btn btn-default">下载</button>
 	</form>
 </div>
 <% include footer.html %>
+<script src="/javascripts/lyz.calendar.min.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        $("#txtBeginDate").calendar({
+            controlId: "divDate",                                 // 弹出的日期控件ID，默认: $(this).attr("id") + "Calendar"
+            speed: 200,                                           // 三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000),默认：200
+            complement: true,                                     // 是否显示日期或年空白处的前后月的补充,默认：true
+            readonly: true,                                       // 目标对象是否设为只读，默认：true
+            upperLimit: new Date(),                               // 日期上限，默认：NaN(不限制)
+            lowerLimit: new Date("2011/01/01"),                   // 日期下限，默认：NaN(不限制)
+            callback: function () {                               // 点击选择日期后的回调函数
+                alert("您选择的日期是：" + $("#txtBeginDate").val());
+            }
+        });
+        $("#txtEndDate").calendar();
+    });
+</script>

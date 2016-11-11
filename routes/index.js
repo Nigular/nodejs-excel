@@ -48,7 +48,7 @@ router.route('/home').get(function(req, res) {
 				function(err,docs){
 					//console.log(docs);
 					//mongedb.db.close();
-					res.redirect("/users");	// 跳转到users路由
+					res.redirect("/list");	// 跳转到list列表路由
 				})
 		});
 });
